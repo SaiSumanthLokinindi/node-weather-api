@@ -3,6 +3,7 @@ const path = require('path');
 
 const express= require('express');
 const app = express();
+const port = process.env.PORT || 3000;
 const weather = require('./utils/weatherReport')
 
 const publicDirectory = path.join(__dirname,'../public')
@@ -55,6 +56,6 @@ app.all('*',(req,res)=>{
     res.send("404")
 })
 
-app.listen(3000,()=>{
-    console.log("Server running at 3000");
+app.listen(port,()=>{
+    console.log("Server running at "+port);
 })
