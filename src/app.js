@@ -27,7 +27,7 @@ app.get('/weather',(req,res,err)=>{
             error: 'You must provide an address'
         })
     }
-    weather(req.query.address,(error,{location,weather}={})=>{
+    weather(req.query.address,(error,{location,weather,temperature}={})=>{
         if(error){
             res.send({
                 error:error
@@ -35,7 +35,8 @@ app.get('/weather',(req,res,err)=>{
         }else{
             res.send({
                 location: location,
-                forecast: weather
+                forecast: weather,
+                temperature:temperature
             });
         }
     })

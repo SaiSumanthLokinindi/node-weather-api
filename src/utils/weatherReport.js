@@ -14,9 +14,11 @@ const weatherReport=(location,callback)=>{
                     callback(response.body.error.type+" : "+response.body.error.info,undefined)
                 }
                 else{
+                    console.log(response.body)
                     callback(undefined,{
                         weather:response.body.current.weather_descriptions[0],
-                        location:locationName
+                        location:locationName,
+                        temperature:response.body.current.temperature
                     });
                 }
             })
